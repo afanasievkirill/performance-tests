@@ -46,8 +46,6 @@ make_purchase_response_json = make_purchase_response.json()
 
 print(make_purchase_response_json)
 
-time.sleep(5) 
-
 get_reciept_response = httpx.get(f"{base_url}/operations/operation-receipt/{make_purchase_response_json["operation"]["id"]}")
 
 get_reciept_response_json = get_reciept_response.json()
