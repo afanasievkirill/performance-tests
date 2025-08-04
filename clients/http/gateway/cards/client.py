@@ -4,7 +4,7 @@ from httpx import Response
 
 from clients.http.client import HTTPClient
 
-class CreateCardRequestDict:
+class CreateCardRequestDict(TypedDict):
     """
     Структура данных для создания новой карты.
     """
