@@ -132,7 +132,7 @@ class OperationsGatewayHTTPClient(HTTPClient):
     def make_top_up_operation(
         self, account_id: str, card_id: str
     ) -> MakeTopUpOperationResponseSchema:
-        request = MakeTopUpOperationRequestSchema(cardId=card_id, accountId=account_id)
+        request = MakeTopUpOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_top_up_operation_api(request)
         return MakeTopUpOperationResponseSchema.model_validate_json(response.text)
 
