@@ -4,6 +4,8 @@ from typing import List
 
 from pydantic import BaseModel, Field, ConfigDict
 
+from tools.fakers import fake
+
 
 class OperationType(StrEnum):
     FEE = "FEE"
@@ -27,7 +29,7 @@ class OperationSchema(BaseModel):
     Структура данных операции
     """
 
-    ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True)
 
     id: str
     type: OperationType
@@ -53,7 +55,7 @@ class OperationsSummarySchema(BaseModel):
     Структура данных по балансу операции
     """
 
-    ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True)
 
     spent_amount: float = Field(alias="spentAmount")
     received_amount: float = Field(alias="receivedAmount")
@@ -65,7 +67,7 @@ class GetOperationQuerySchema(BaseModel):
     Структура данных для получения списка операций.
     """
 
-    ConfigDict(populate_by_name=True)
+    model_config = ConfigDict(populate_by_name=True)
     account_id: str = Field(alias="accountId")
 
 
@@ -106,9 +108,9 @@ class MakeFeeOperationRequestSchema(BaseModel):
     Структура данных для создания операции платежа по счету.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -126,9 +128,9 @@ class MakeTopUpOperationRequestSchema(BaseModel):
     Структура данных для создания операции платежа по счету.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -146,9 +148,9 @@ class MakeCashbackOperationRequestSchema(BaseModel):
     Структура данных для создания операции кэшбека по счету.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -166,9 +168,9 @@ class MakeTransferOperationRequestSchema(BaseModel):
     Структура данных для создания перевода между счетами.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -186,12 +188,12 @@ class MakePurchaseOperationRequestSchema(BaseModel):
     Структура данных для совершения покупки.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
-    category: str
+    category: str = Field(default_factory=fake.category)
 
 
 class MakePurchaseOperationResponseSchema(BaseModel):
@@ -207,9 +209,9 @@ class MakeBillPaymentOperationRequestSchema(BaseModel):
     Структура данных для орлаты счета.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -227,9 +229,9 @@ class MakeCashWithdrawalOperationRequestSchema(BaseModel):
     Структура данных для создания операции кэшбека по счету.
     """
 
-    ConfigDict(populate_by_name=True)
-    status: str
-    amount: float
+    model_config = ConfigDict(populate_by_name=True)
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.float)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
