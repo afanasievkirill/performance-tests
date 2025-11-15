@@ -3,3 +3,4 @@ faker
 pydantic
 grpcio
 grpcio-tools
+gevent
