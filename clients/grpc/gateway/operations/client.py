@@ -151,7 +151,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakeFeeOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
@@ -178,9 +178,9 @@ class OperationsGatewayGRPCClient(GRPCClient):
         :param account_id: Идентификатор аккаунта.
         :return: результат выполнения операции комиссии.
         """
-        request = MakeFeeOperationRequest(
+        request = MakeTopUpOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
@@ -209,7 +209,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakeCashbackOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
@@ -238,7 +238,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakeTransferOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
@@ -267,10 +267,10 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakePurchaseOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
-            category=fake.category,
+            category=fake.category(),
         )
         return self.make_purchase_operation_api(request)
 
@@ -297,7 +297,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakeBillPaymentOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
@@ -326,7 +326,7 @@ class OperationsGatewayGRPCClient(GRPCClient):
         """
         request = MakeCashWithdrawalOperationRequest(
             status=fake.proto_enum(OperationStatus),
-            amount=fake.float,
+            amount=fake.float(),
             card_id=card_id,
             account_id=account_id,
         )
