@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.cards import card_pb2 as contracts_dot_services_dot_cards_dot_card__pb2
-from contracts.services.accounts import account_pb2 as contracts_dot_services_dot_accounts_dot_account__pb2
-
+from contracts.services.accounts import \
+    account_pb2 as contracts_dot_services_dot_accounts_dot_account__pb2
+from contracts.services.cards import \
+    card_pb2 as contracts_dot_services_dot_cards_dot_card__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1contracts/services/gateway/accounts/account.proto\x12#contracts.services.gateway.accounts\x1a#contracts/services/cards/card.proto\x1a)contracts/services/accounts/account.proto\"\xcd\x01\n\x0b\x41\x63\x63ountView\x12\n\n\x02id\x18\x01 \x01(\t\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32(.contracts.services.accounts.AccountType\x12-\n\x05\x63\x61rds\x18\x03 \x03(\x0b\x32\x1e.contracts.services.cards.Card\x12:\n\x06status\x18\x04 \x01(\x0e\x32*.contracts.services.accounts.AccountStatus\x12\x0f\n\x07\x62\x61lance\x18\x05 \x01(\x01\x62\x06proto3')
 

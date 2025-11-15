@@ -1,22 +1,20 @@
 import grpc
 
 # Импортируем gRPC-клиенты и protobuf-сообщения для нужных сервисов
-from contracts.services.gateway.accounts.accounts_gateway_service_pb2_grpc import AccountsGatewayServiceStub
+from contracts.services.gateway.accounts.accounts_gateway_service_pb2_grpc import \
+    AccountsGatewayServiceStub
 from contracts.services.gateway.accounts.rpc_open_savings_account_pb2 import (
-    OpenSavingsAccountRequest,
-    OpenSavingsAccountResponse,
-)
-from contracts.services.gateway.documents.documents_gateway_service_pb2_grpc import DocumentsGatewayServiceStub
+    OpenSavingsAccountRequest, OpenSavingsAccountResponse)
+from contracts.services.gateway.documents.documents_gateway_service_pb2_grpc import \
+    DocumentsGatewayServiceStub
 from contracts.services.gateway.documents.rpc_get_contract_document_pb2 import (
-    GetContractDocumentRequest,
-    GetContractDocumentResponse
-)
+    GetContractDocumentRequest, GetContractDocumentResponse)
 from contracts.services.gateway.documents.rpc_get_tariff_document_pb2 import (
-    GetTariffDocumentRequest,
-    GetTariffDocumentResponse
-)
-from contracts.services.gateway.users.rpc_create_user_pb2 import CreateUserRequest, CreateUserResponse
-from contracts.services.gateway.users.users_gateway_service_pb2_grpc import UsersGatewayServiceStub
+    GetTariffDocumentRequest, GetTariffDocumentResponse)
+from contracts.services.gateway.users.rpc_create_user_pb2 import (
+    CreateUserRequest, CreateUserResponse)
+from contracts.services.gateway.users.users_gateway_service_pb2_grpc import \
+    UsersGatewayServiceStub
 # Утилита для генерации случайных данных
 from tools.fakers import fake
 

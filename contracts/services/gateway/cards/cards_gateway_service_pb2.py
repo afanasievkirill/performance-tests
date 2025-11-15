@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.gateway.cards import rpc_issue_virtual_card_pb2 as contracts_dot_services_dot_gateway_dot_cards_dot_rpc__issue__virtual__card__pb2
-from contracts.services.gateway.cards import rpc_issue_physical_card_pb2 as contracts_dot_services_dot_gateway_dot_cards_dot_rpc__issue__physical__card__pb2
-
+from contracts.services.gateway.cards import \
+    rpc_issue_physical_card_pb2 as \
+    contracts_dot_services_dot_gateway_dot_cards_dot_rpc__issue__physical__card__pb2
+from contracts.services.gateway.cards import \
+    rpc_issue_virtual_card_pb2 as \
+    contracts_dot_services_dot_gateway_dot_cards_dot_rpc__issue__virtual__card__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<contracts/services/gateway/cards/cards_gateway_service.proto\x12 contracts.services.gateway.cards\x1a=contracts/services/gateway/cards/rpc_issue_virtual_card.proto\x1a>contracts/services/gateway/cards/rpc_issue_physical_card.proto2\xb0\x02\n\x13\x43\x61rdsGatewayService\x12\x89\x01\n\x10IssueVirtualCard\x12\x39.contracts.services.gateway.cards.IssueVirtualCardRequest\x1a:.contracts.services.gateway.cards.IssueVirtualCardResponse\x12\x8c\x01\n\x11IssuePhysicalCard\x12:.contracts.services.gateway.cards.IssuePhysicalCardRequest\x1a;.contracts.services.gateway.cards.IssuePhysicalCardResponseb\x06proto3')
 

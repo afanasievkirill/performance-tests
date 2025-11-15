@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,11 +23,18 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.operations import rpc_get_operation_pb2 as contracts_dot_services_dot_operations_dot_rpc__get__operation__pb2
-from contracts.services.operations import rpc_get_operations_pb2 as contracts_dot_services_dot_operations_dot_rpc__get__operations__pb2
-from contracts.services.operations import rpc_create_operation_pb2 as contracts_dot_services_dot_operations_dot_rpc__create__operation__pb2
-from contracts.services.operations import rpc_get_operations_summary_pb2 as contracts_dot_services_dot_operations_dot_rpc__get__operations__summary__pb2
-
+from contracts.services.operations import \
+    rpc_create_operation_pb2 as \
+    contracts_dot_services_dot_operations_dot_rpc__create__operation__pb2
+from contracts.services.operations import \
+    rpc_get_operation_pb2 as \
+    contracts_dot_services_dot_operations_dot_rpc__get__operation__pb2
+from contracts.services.operations import \
+    rpc_get_operations_pb2 as \
+    contracts_dot_services_dot_operations_dot_rpc__get__operations__pb2
+from contracts.services.operations import \
+    rpc_get_operations_summary_pb2 as \
+    contracts_dot_services_dot_operations_dot_rpc__get__operations__summary__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6contracts/services/operations/operations_service.proto\x12\x1d\x63ontracts.services.operations\x1a\x35\x63ontracts/services/operations/rpc_get_operation.proto\x1a\x36\x63ontracts/services/operations/rpc_get_operations.proto\x1a\x38\x63ontracts/services/operations/rpc_create_operation.proto\x1a>contracts/services/operations/rpc_get_operations_summary.proto2\x9d\x04\n\x11OperationsService\x12w\n\x0cGetOperation\x12\x32.contracts.services.operations.GetOperationRequest\x1a\x33.contracts.services.operations.GetOperationResponse\x12z\n\rGetOperations\x12\x33.contracts.services.operations.GetOperationsRequest\x1a\x34.contracts.services.operations.GetOperationsResponse\x12\x80\x01\n\x0f\x43reateOperation\x12\x35.contracts.services.operations.CreateOperationRequest\x1a\x36.contracts.services.operations.CreateOperationResponse\x12\x8f\x01\n\x14GetOperationsSummary\x12:.contracts.services.operations.GetOperationsSummaryRequest\x1a;.contracts.services.operations.GetOperationsSummaryResponseb\x06proto3')
 

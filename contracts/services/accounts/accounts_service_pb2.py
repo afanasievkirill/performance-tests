@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,11 +23,18 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.accounts import rpc_get_account_pb2 as contracts_dot_services_dot_accounts_dot_rpc__get__account__pb2
-from contracts.services.accounts import rpc_get_accounts_pb2 as contracts_dot_services_dot_accounts_dot_rpc__get__accounts__pb2
-from contracts.services.accounts import rpc_create_account_pb2 as contracts_dot_services_dot_accounts_dot_rpc__create__account__pb2
-from contracts.services.accounts import rpc_update_account_balance_pb2 as contracts_dot_services_dot_accounts_dot_rpc__update__account__balance__pb2
-
+from contracts.services.accounts import \
+    rpc_create_account_pb2 as \
+    contracts_dot_services_dot_accounts_dot_rpc__create__account__pb2
+from contracts.services.accounts import \
+    rpc_get_account_pb2 as \
+    contracts_dot_services_dot_accounts_dot_rpc__get__account__pb2
+from contracts.services.accounts import \
+    rpc_get_accounts_pb2 as \
+    contracts_dot_services_dot_accounts_dot_rpc__get__accounts__pb2
+from contracts.services.accounts import \
+    rpc_update_account_balance_pb2 as \
+    contracts_dot_services_dot_accounts_dot_rpc__update__account__balance__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2contracts/services/accounts/accounts_service.proto\x12\x1b\x63ontracts.services.accounts\x1a\x31\x63ontracts/services/accounts/rpc_get_account.proto\x1a\x32\x63ontracts/services/accounts/rpc_get_accounts.proto\x1a\x34\x63ontracts/services/accounts/rpc_create_account.proto\x1a<contracts/services/accounts/rpc_update_account_balance.proto2\xf8\x03\n\x0f\x41\x63\x63ountsService\x12m\n\nGetAccount\x12..contracts.services.accounts.GetAccountRequest\x1a/.contracts.services.accounts.GetAccountResponse\x12p\n\x0bGetAccounts\x12/.contracts.services.accounts.GetAccountsRequest\x1a\x30.contracts.services.accounts.GetAccountsResponse\x12v\n\rCreateAccount\x12\x31.contracts.services.accounts.CreateAccountRequest\x1a\x32.contracts.services.accounts.CreateAccountResponse\x12\x8b\x01\n\x14UpdateAccountBalance\x12\x38.contracts.services.accounts.UpdateAccountBalanceRequest\x1a\x39.contracts.services.accounts.UpdateAccountBalanceResponseb\x06proto3')
 

@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.documents.contracts import rpc_get_contract_pb2 as contracts_dot_services_dot_documents_dot_contracts_dot_rpc__get__contract__pb2
-from contracts.services.documents.contracts import rpc_create_contract_pb2 as contracts_dot_services_dot_documents_dot_contracts_dot_rpc__create__contract__pb2
-
+from contracts.services.documents.contracts import \
+    rpc_create_contract_pb2 as \
+    contracts_dot_services_dot_documents_dot_contracts_dot_rpc__create__contract__pb2
+from contracts.services.documents.contracts import \
+    rpc_get_contract_pb2 as \
+    contracts_dot_services_dot_documents_dot_contracts_dot_rpc__get__contract__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>contracts/services/documents/contracts/contracts_service.proto\x12&contracts.services.documents.contracts\x1a=contracts/services/documents/contracts/rpc_get_contract.proto\x1a@contracts/services/documents/contracts/rpc_create_contract.proto2\xad\x02\n\x10\x43ontractsService\x12\x86\x01\n\x0bGetContract\x12:.contracts.services.documents.contracts.GetContractRequest\x1a;.contracts.services.documents.contracts.GetContractResponse\x12\x8f\x01\n\x0e\x43reateContract\x12=.contracts.services.documents.contracts.CreateContractRequest\x1a>.contracts.services.documents.contracts.CreateContractResponseb\x06proto3')
 

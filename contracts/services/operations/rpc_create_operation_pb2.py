@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.operations import operation_pb2 as contracts_dot_services_dot_operations_dot_operation__pb2
-
+from contracts.services.operations import \
+    operation_pb2 as contracts_dot_services_dot_operations_dot_operation__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8contracts/services/operations/rpc_create_operation.proto\x12\x1d\x63ontracts.services.operations\x1a-contracts/services/operations/operation.proto\"\xef\x01\n\x16\x43reateOperationRequest\x12:\n\x04type\x18\x01 \x01(\x0e\x32,.contracts.services.operations.OperationType\x12>\n\x06status\x18\x02 \x01(\x0e\x32..contracts.services.operations.OperationStatus\x12\x0e\n\x06\x61mount\x18\x03 \x01(\x02\x12\x0f\n\x07\x63\x61rd_id\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x12\n\ncreated_at\x18\x06 \x01(\t\x12\x12\n\naccount_id\x18\x07 \x01(\t\"V\n\x17\x43reateOperationResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32(.contracts.services.operations.Operationb\x06proto3')
 

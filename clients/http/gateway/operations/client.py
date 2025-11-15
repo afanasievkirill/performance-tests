@@ -1,31 +1,21 @@
-from typing import TypedDict, List
+from typing import List, TypedDict
 
 from httpx import Response
 
 from clients.http.client import HTTPClient, QueryParams
 from clients.http.gateway.client import build_gateway_http_client
-
 from clients.http.gateway.operations.schema import (
-    GetOperationQuerySchema,
-    GetOperationsResponseSchema,
-    GetOperationResponseSchema,
-    GetOperationReceiptResponseSchema,
-    GetOperationSummaryResponseSchema,
-    MakeFeeOperationRequestSchema,
-    MakeFeeOperationResponseSchema,
-    MakeTopUpOperationRequestSchema,
-    MakeTopUpOperationResponseSchema,
-    MakeCashbackOperationRequestSchema,
+    GetOperationQuerySchema, GetOperationReceiptResponseSchema,
+    GetOperationResponseSchema, GetOperationsResponseSchema,
+    GetOperationSummaryResponseSchema, MakeBillPaymentOperationRequestSchema,
+    MakeBillPaymentOperationResponseSchema, MakeCashbackOperationRequestSchema,
     MakeCashbackOperationResponseSchema,
-    MakeTransferOperationRequestSchema,
-    MakeTransferOperationResponseSchema,
-    MakePurchaseOperationRequestSchema,
-    MakePurchaseOperationResponseSchema,
-    MakeBillPaymentOperationRequestSchema,
-    MakeBillPaymentOperationResponseSchema,
     MakeCashWithdrawalOperationRequestSchema,
-    MakeCashWithdrawalOperationResponseSchema,
-)
+    MakeCashWithdrawalOperationResponseSchema, MakeFeeOperationRequestSchema,
+    MakeFeeOperationResponseSchema, MakePurchaseOperationRequestSchema,
+    MakePurchaseOperationResponseSchema, MakeTopUpOperationRequestSchema,
+    MakeTopUpOperationResponseSchema, MakeTransferOperationRequestSchema,
+    MakeTransferOperationResponseSchema)
 
 
 class OperationsGatewayHTTPClient(HTTPClient):

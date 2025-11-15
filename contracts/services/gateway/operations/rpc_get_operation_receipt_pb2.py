@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,9 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.documents.receipts import receipt_pb2 as contracts_dot_services_dot_documents_dot_receipts_dot_receipt__pb2
-
+from contracts.services.documents.receipts import \
+    receipt_pb2 as \
+    contracts_dot_services_dot_documents_dot_receipts_dot_receipt__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEcontracts/services/gateway/operations/rpc_get_operation_receipt.proto\x12%contracts.services.gateway.operations\x1a\x33\x63ontracts/services/documents/receipts/receipt.proto\"2\n\x1aGetOperationReceiptRequest\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\"^\n\x1bGetOperationReceiptResponse\x12?\n\x07receipt\x18\x01 \x01(\x0b\x32..contracts.services.documents.receipts.Receiptb\x06proto3')
 

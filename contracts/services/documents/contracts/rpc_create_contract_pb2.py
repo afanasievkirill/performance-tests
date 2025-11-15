@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,9 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.documents.contracts import contract_pb2 as contracts_dot_services_dot_documents_dot_contracts_dot_contract__pb2
-
+from contracts.services.documents.contracts import \
+    contract_pb2 as \
+    contracts_dot_services_dot_documents_dot_contracts_dot_contract__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n@contracts/services/documents/contracts/rpc_create_contract.proto\x12&contracts.services.documents.contracts\x1a\x35\x63ontracts/services/documents/contracts/contract.proto\"<\n\x15\x43reateContractRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\x0c\"\\\n\x16\x43reateContractResponse\x12\x42\n\x08\x63ontract\x18\x01 \x01(\x0b\x32\x30.contracts.services.documents.contracts.Contractb\x06proto3')
 

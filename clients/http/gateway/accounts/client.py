@@ -1,21 +1,15 @@
 from typing import TypedDict
 
-from httpx import Response, QueryParams
+from httpx import QueryParams, Response
 
 from clients.http.client import HTTPClient
-from clients.http.gateway.client import build_gateway_http_client
 from clients.http.gateway.accounts.schema import (
-    GetAccountsQuerySchema,
-    GetAccountsResponseSchema,
-    OpenDepositAccountRequestSchema,
-    OpenDepositAccountResponseSchema,
-    OpenSavingsAccountRequestSchema,
-    OpenSavingsAccountResponseSchema,
-    OpenDebitCardAccountRequestSchema,
-    OpenDebitCardAccountResponseSchema,
-    OpenCreditCardAccountRequestSchema,
-    OpenCreditCardAccountResponseSchema,
-)
+    GetAccountsQuerySchema, GetAccountsResponseSchema,
+    OpenCreditCardAccountRequestSchema, OpenCreditCardAccountResponseSchema,
+    OpenDebitCardAccountRequestSchema, OpenDebitCardAccountResponseSchema,
+    OpenDepositAccountRequestSchema, OpenDepositAccountResponseSchema,
+    OpenSavingsAccountRequestSchema, OpenSavingsAccountResponseSchema)
+from clients.http.gateway.client import build_gateway_http_client
 
 
 class AccountsGatewayHTTPClient(HTTPClient):

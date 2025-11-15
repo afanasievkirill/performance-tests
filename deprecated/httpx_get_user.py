@@ -1,5 +1,5 @@
+import httpx
 from faker import Faker
-import httpx  
 
 fake = Faker()
 

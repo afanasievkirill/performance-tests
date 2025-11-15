@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.gateway.users import rpc_get_user_pb2 as contracts_dot_services_dot_gateway_dot_users_dot_rpc__get__user__pb2
-from contracts.services.gateway.users import rpc_create_user_pb2 as contracts_dot_services_dot_gateway_dot_users_dot_rpc__create__user__pb2
-
+from contracts.services.gateway.users import \
+    rpc_create_user_pb2 as \
+    contracts_dot_services_dot_gateway_dot_users_dot_rpc__create__user__pb2
+from contracts.services.gateway.users import \
+    rpc_get_user_pb2 as \
+    contracts_dot_services_dot_gateway_dot_users_dot_rpc__get__user__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<contracts/services/gateway/users/users_gateway_service.proto\x12 contracts.services.gateway.users\x1a\x33\x63ontracts/services/gateway/users/rpc_get_user.proto\x1a\x36\x63ontracts/services/gateway/users/rpc_create_user.proto2\xfe\x01\n\x13UsersGatewayService\x12n\n\x07GetUser\x12\x30.contracts.services.gateway.users.GetUserRequest\x1a\x31.contracts.services.gateway.users.GetUserResponse\x12w\n\nCreateUser\x12\x33.contracts.services.gateway.users.CreateUserRequest\x1a\x34.contracts.services.gateway.users.CreateUserResponseb\x06proto3')
 

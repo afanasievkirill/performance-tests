@@ -1,21 +1,14 @@
 import grpc
 
-from contracts.services.gateway.users.rpc_create_user_pb2 import (
-    CreateUserRequest,
-    CreateUserResponse,
-)
-from contracts.services.gateway.users.rpc_get_user_pb2 import GetUserRequest
-from contracts.services.gateway.users.users_gateway_service_pb2_grpc import (
-    UsersGatewayServiceStub,
-)
-from contracts.services.gateway.accounts.accounts_gateway_service_pb2_grpc import (
-    AccountsGatewayServiceStub,
-)
+from contracts.services.gateway.accounts.accounts_gateway_service_pb2_grpc import \
+    AccountsGatewayServiceStub
 from contracts.services.gateway.accounts.rpc_open_debit_card_account_pb2 import (
-    OpenDebitCardAccountRequest,
-    OpenDebitCardAccountResponse,
-)
-
+    OpenDebitCardAccountRequest, OpenDebitCardAccountResponse)
+from contracts.services.gateway.users.rpc_create_user_pb2 import (
+    CreateUserRequest, CreateUserResponse)
+from contracts.services.gateway.users.rpc_get_user_pb2 import GetUserRequest
+from contracts.services.gateway.users.users_gateway_service_pb2_grpc import \
+    UsersGatewayServiceStub
 from tools.fakers import fake
 
 channel = grpc.insecure_channel("localhost:9003")

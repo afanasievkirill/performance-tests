@@ -2,7 +2,7 @@ from datetime import date
 from enum import StrEnum
 from typing import List
 
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from tools.fakers import fake
 

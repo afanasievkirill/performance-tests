@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.documents.tariffs import rpc_get_tariff_pb2 as contracts_dot_services_dot_documents_dot_tariffs_dot_rpc__get__tariff__pb2
-from contracts.services.documents.tariffs import rpc_create_tariff_pb2 as contracts_dot_services_dot_documents_dot_tariffs_dot_rpc__create__tariff__pb2
-
+from contracts.services.documents.tariffs import \
+    rpc_create_tariff_pb2 as \
+    contracts_dot_services_dot_documents_dot_tariffs_dot_rpc__create__tariff__pb2
+from contracts.services.documents.tariffs import \
+    rpc_get_tariff_pb2 as \
+    contracts_dot_services_dot_documents_dot_tariffs_dot_rpc__get__tariff__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:contracts/services/documents/tariffs/tariffs_service.proto\x12$contracts.services.documents.tariffs\x1a\x39\x63ontracts/services/documents/tariffs/rpc_get_tariff.proto\x1a<contracts/services/documents/tariffs/rpc_create_tariff.proto2\x96\x02\n\x0eTariffsService\x12|\n\tGetTariff\x12\x36.contracts.services.documents.tariffs.GetTariffRequest\x1a\x37.contracts.services.documents.tariffs.GetTariffResponse\x12\x85\x01\n\x0c\x43reateTariff\x12\x39.contracts.services.documents.tariffs.CreateTariffRequest\x1a:.contracts.services.documents.tariffs.CreateTariffResponseb\x06proto3')
 

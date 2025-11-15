@@ -4,3 +4,4 @@ pydantic
 grpcio
 grpcio-tools
 gevent
+isort

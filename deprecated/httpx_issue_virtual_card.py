@@ -1,6 +1,5 @@
-from faker import Faker
 import httpx  # Импортируем HTTPX
-
+from faker import Faker
 
 fake = Faker()
 base_url = "http://localhost:8003/api/v1"

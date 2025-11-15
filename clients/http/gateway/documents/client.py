@@ -5,9 +5,7 @@ from httpx import Response
 from clients.http.client import HTTPClient
 from clients.http.gateway.client import build_gateway_http_client
 from clients.http.gateway.documents.schema import (
-    GetContractDocumentResponseSchema,
-    GetTariffDocumentResponseSchema,
-)
+    GetContractDocumentResponseSchema, GetTariffDocumentResponseSchema)
 
 
 class DocumentsGatewayHTTPClient(HTTPClient):

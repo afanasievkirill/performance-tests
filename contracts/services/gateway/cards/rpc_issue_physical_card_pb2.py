@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.cards import card_pb2 as contracts_dot_services_dot_cards_dot_card__pb2
-
+from contracts.services.cards import \
+    card_pb2 as contracts_dot_services_dot_cards_dot_card__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>contracts/services/gateway/cards/rpc_issue_physical_card.proto\x12 contracts.services.gateway.cards\x1a#contracts/services/cards/card.proto\"?\n\x18IssuePhysicalCardRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\naccount_id\x18\x02 \x01(\t\"I\n\x19IssuePhysicalCardResponse\x12,\n\x04\x63\x61rd\x18\x01 \x01(\x0b\x32\x1e.contracts.services.cards.Cardb\x06proto3')
 

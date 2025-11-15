@@ -1,7 +1,7 @@
 import time
 
+import httpx
 from faker import Faker
-import httpx  
 
 fake = Faker()
 base_url = "http://localhost:8003/api/v1"

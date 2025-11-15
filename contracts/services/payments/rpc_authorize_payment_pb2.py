@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.payments import payment_pb2 as contracts_dot_services_dot_payments_dot_payment__pb2
-
+from contracts.services.payments import \
+    payment_pb2 as contracts_dot_services_dot_payments_dot_payment__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7contracts/services/payments/rpc_authorize_payment.proto\x12\x1b\x63ontracts.services.payments\x1a)contracts/services/payments/payment.proto\"\xb1\x01\n\x17\x41uthorizePaymentRequest\x12\x0b\n\x03\x63vv\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x01\x12:\n\x06system\x18\x03 \x01(\x0e\x32*.contracts.services.payments.PaymentSystem\x12\x13\n\x0b\x65xpiry_date\x18\x04 \x01(\t\x12\x13\n\x0b\x63\x61rd_number\x18\x05 \x01(\t\x12\x13\n\x0b\x63\x61rd_holder\x18\x06 \x01(\t\"Q\n\x18\x41uthorizePaymentResponse\x12\x35\n\x07payment\x18\x01 \x01(\x0b\x32$.contracts.services.payments.Paymentb\x06proto3')
 

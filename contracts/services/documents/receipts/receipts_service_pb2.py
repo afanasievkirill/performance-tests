@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,9 +23,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.documents.receipts import rpc_get_receipt_pb2 as contracts_dot_services_dot_documents_dot_receipts_dot_rpc__get__receipt__pb2
-from contracts.services.documents.receipts import rpc_create_receipt_pb2 as contracts_dot_services_dot_documents_dot_receipts_dot_rpc__create__receipt__pb2
-
+from contracts.services.documents.receipts import \
+    rpc_create_receipt_pb2 as \
+    contracts_dot_services_dot_documents_dot_receipts_dot_rpc__create__receipt__pb2
+from contracts.services.documents.receipts import \
+    rpc_get_receipt_pb2 as \
+    contracts_dot_services_dot_documents_dot_receipts_dot_rpc__get__receipt__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<contracts/services/documents/receipts/receipts_service.proto\x12%contracts.services.documents.receipts\x1a;contracts/services/documents/receipts/rpc_get_receipt.proto\x1a>contracts/services/documents/receipts/rpc_create_receipt.proto2\xa2\x02\n\x0fReceiptsService\x12\x81\x01\n\nGetReceipt\x12\x38.contracts.services.documents.receipts.GetReceiptRequest\x1a\x39.contracts.services.documents.receipts.GetReceiptResponse\x12\x8a\x01\n\rCreateReceipt\x12;.contracts.services.documents.receipts.CreateReceiptRequest\x1a<.contracts.services.documents.receipts.CreateReceiptResponseb\x06proto3')
 

@@ -9,6 +9,7 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     5,
@@ -22,8 +23,8 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from contracts.services.accounts import account_pb2 as contracts_dot_services_dot_accounts_dot_account__pb2
-
+from contracts.services.accounts import \
+    account_pb2 as contracts_dot_services_dot_accounts_dot_account__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4contracts/services/accounts/rpc_create_account.proto\x12\x1b\x63ontracts.services.accounts\x1a)contracts/services/accounts/account.proto\"\xac\x01\n\x14\x43reateAccountRequest\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32(.contracts.services.accounts.AccountType\x12:\n\x06status\x18\x03 \x01(\x0e\x32*.contracts.services.accounts.AccountStatus\x12\x0f\n\x07user_id\x18\x04 \x01(\t\x12\x0f\n\x07\x62\x61lance\x18\x05 \x01(\x02\"N\n\x15\x43reateAccountResponse\x12\x35\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32$.contracts.services.accounts.Accountb\x06proto3')
 
