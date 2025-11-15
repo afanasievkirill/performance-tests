@@ -5,3 +5,4 @@ grpcio
 grpcio-tools
 gevent
 isort
+locust
