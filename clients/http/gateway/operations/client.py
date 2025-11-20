@@ -1,21 +1,32 @@
-from typing import List, TypedDict
-
 from httpx import Response
+from locust.env import Environment
 
-from clients.http.client import HTTPClient, QueryParams
-from clients.http.gateway.client import build_gateway_http_client
+from clients.http.client import HTTPClient, QueryParams, HTTPClientExtensions
+from clients.http.gateway.client import (
+    build_gateway_http_client,
+    build_gateway_locust_http_client,
+)
 from clients.http.gateway.operations.schema import (
-    GetOperationQuerySchema, GetOperationReceiptResponseSchema,
-    GetOperationResponseSchema, GetOperationsResponseSchema,
-    GetOperationSummaryResponseSchema, MakeBillPaymentOperationRequestSchema,
-    MakeBillPaymentOperationResponseSchema, MakeCashbackOperationRequestSchema,
+    GetOperationQuerySchema,
+    GetOperationReceiptResponseSchema,
+    GetOperationResponseSchema,
+    GetOperationsResponseSchema,
+    GetOperationSummaryResponseSchema,
+    MakeBillPaymentOperationRequestSchema,
+    MakeBillPaymentOperationResponseSchema,
+    MakeCashbackOperationRequestSchema,
     MakeCashbackOperationResponseSchema,
     MakeCashWithdrawalOperationRequestSchema,
-    MakeCashWithdrawalOperationResponseSchema, MakeFeeOperationRequestSchema,
-    MakeFeeOperationResponseSchema, MakePurchaseOperationRequestSchema,
-    MakePurchaseOperationResponseSchema, MakeTopUpOperationRequestSchema,
-    MakeTopUpOperationResponseSchema, MakeTransferOperationRequestSchema,
-    MakeTransferOperationResponseSchema)
+    MakeCashWithdrawalOperationResponseSchema,
+    MakeFeeOperationRequestSchema,
+    MakeFeeOperationResponseSchema,
+    MakePurchaseOperationRequestSchema,
+    MakePurchaseOperationResponseSchema,
+    MakeTopUpOperationRequestSchema,
+    MakeTopUpOperationResponseSchema,
+    MakeTransferOperationRequestSchema,
+    MakeTransferOperationResponseSchema,
+)
 
 
 class OperationsGatewayHTTPClient(HTTPClient):
@@ -31,7 +42,9 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Объект httpx.Response с данными о счетах.
         """
         return self.get(
-            "/api/v1/operations", params=QueryParams(**query.model_dump(by_alias=True))
+            "/api/v1/operations",
+            params=QueryParams(**query.model_dump(by_alias=True)),
+            extensions=HTTPClientExtensions(route="/api/v1/operations"),
         )
 
     def get_operations(self, account_id: str) -> GetOperationsResponseSchema:
@@ -45,7 +58,10 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :param operation_id: Идентификатор операции.
         :return: Ответ от сервера (объект httpx.Response).
         """
-        return self.get(f"/api/v1/operations/{operation_id}")
+        return self.get(
+            f"/api/v1/operations/{operation_id}",
+            extensions=HTTPClientExtensions(route="/api/v1/operations/{operation_id}"),
+        )
 
     def get_operation(self, operation_id: str) -> GetOperationResponseSchema:
         response = self.get_operation_api(operation_id)
@@ -58,7 +74,12 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :param operation_id: Идентификатор операции.
         :return: Ответ от сервера (объект httpx.Response).
         """
-        return self.get(f"/api/v1/operations/operation-receipt/{operation_id}")
+        return self.get(
+            f"/api/v1/operations/operation-receipt/{operation_id}",
+            extensions=HTTPClientExtensions(
+                route="/api/v1/operations/operation-receipt/{operation_id}"
+            ),
+        )
 
     def get_operation_receipt(
         self, operation_id: str
@@ -76,6 +97,9 @@ class OperationsGatewayHTTPClient(HTTPClient):
         return self.get(
             f"/api/v1/operations/operations-summary",
             params=QueryParams(**query.model_dump(by_alias=True)),
+            extensions=HTTPClientExtensions(
+                route="/api/v1/operations/operations-summary"
+            ),
         )
 
     def get_operation_summary(
@@ -122,7 +146,9 @@ class OperationsGatewayHTTPClient(HTTPClient):
     def make_top_up_operation(
         self, account_id: str, card_id: str
     ) -> MakeTopUpOperationResponseSchema:
-        request = MakeTopUpOperationRequestSchema(card_id=card_id, account_id=account_id)
+        request = MakeTopUpOperationRequestSchema(
+            card_id=card_id, account_id=account_id
+        )
         response = self.make_top_up_operation_api(request)
         return MakeTopUpOperationResponseSchema.model_validate_json(response.text)
 
@@ -252,3 +278,20 @@ def build_operations_gateway_http_client() -> OperationsGatewayHTTPClient:
     :return: Готовый к использованию UsersGatewayHTTPClient.
     """
     return OperationsGatewayHTTPClient(client=build_gateway_http_client())
+
+
+def build_operations_gateway_locust_http_client(
+    environment: Environment,
+) -> OperationsGatewayHTTPClient:
+    """
+    Функция создаёт экземпляр OperationsGatewayHTTPClient адаптированного под Locust.
+
+    Клиент автоматически собирает метрики и передаёт их в Locust через хуки.
+    Используется исключительно в нагрузочных тестах.
+
+    :param environment: объект окружения Locust.
+    :return: экземпляр OperationsGatewayHTTPClient с хуками сбора метрик.
+    """
+    return OperationsGatewayHTTPClient(
+        client=build_gateway_locust_http_client(environment)
+    )
