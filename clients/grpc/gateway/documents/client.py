@@ -1,13 +1,22 @@
 from grpc import Channel
+from locust.env import Environment
 
 from clients.grpc.client import GRPCClient
-from clients.grpc.gateway.client import build_gateway_grpc_client
-from contracts.services.gateway.documents.documents_gateway_service_pb2_grpc import \
-    DocumentsGatewayServiceStub
+from clients.grpc.gateway.client import (
+    build_gateway_grpc_client,
+    build_gateway_locust_grpc_client,
+)
+from contracts.services.gateway.documents.documents_gateway_service_pb2_grpc import (
+    DocumentsGatewayServiceStub,
+)
 from contracts.services.gateway.documents.rpc_get_contract_document_pb2 import (
-    GetContractDocumentRequest, GetContractDocumentResponse)
+    GetContractDocumentRequest,
+    GetContractDocumentResponse,
+)
 from contracts.services.gateway.documents.rpc_get_tariff_document_pb2 import (
-    GetTariffDocumentRequest, GetTariffDocumentResponse)
+    GetTariffDocumentRequest,
+    GetTariffDocumentResponse,
+)
 
 
 class DocumentsGatewayGRPCClient(GRPCClient):
@@ -26,7 +35,9 @@ class DocumentsGatewayGRPCClient(GRPCClient):
 
         self.stub = DocumentsGatewayServiceStub(channel)
 
-    def get_tariff_document_api(self, request: GetTariffDocumentRequest) -> GetTariffDocumentResponse:
+    def get_tariff_document_api(
+        self, request: GetTariffDocumentRequest
+    ) -> GetTariffDocumentResponse:
         """
         Низкоуровневый вызов метода GetTariffDocument через gRPC.
 
@@ -35,7 +46,9 @@ class DocumentsGatewayGRPCClient(GRPCClient):
         """
         return self.stub.GetTariffDocument(request)
 
-    def get_contract_document_api(self, request: GetContractDocumentRequest) -> GetContractDocumentResponse:
+    def get_contract_document_api(
+        self, request: GetContractDocumentRequest
+    ) -> GetContractDocumentResponse:
         """
         Низкоуровневый вызов метода GetContractDocument через gRPC.
 
@@ -60,3 +73,20 @@ def build_documents_gateway_grpc_client() -> DocumentsGatewayGRPCClient:
     :return: Инициализированный клиент для DocumentsGatewayService.
     """
     return DocumentsGatewayGRPCClient(channel=build_gateway_grpc_client())
+
+
+def build_documents_gateway_locust_grpc_client(
+    environment: Environment,
+) -> DocumentsGatewayGRPCClient:
+    """
+    Функция создаёт экземпляр DocumentsGatewayGRPCClient адаптированного под Locust.
+
+    Клиент автоматически собирает метрики и передаёт их в Locust через хуки.
+    Используется исключительно в нагрузочных тестах.
+
+    :param environment: объект окружения Locust.
+    :return: экземпляр DocumentsGatewayGRPCClient с хуками сбора метрик.
+    """
+    return DocumentsGatewayGRPCClient(
+        channel=build_gateway_locust_grpc_client(environment)
+    )

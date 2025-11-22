@@ -1,31 +1,58 @@
 from grpc import Channel
+from locust.env import Environment
 
 from clients.grpc.client import GRPCClient
-from clients.grpc.gateway.client import build_gateway_grpc_client
-from contracts.services.gateway.operations.operations_gateway_service_pb2_grpc import \
-    OperationsGatewayServiceStub
+from clients.grpc.gateway.client import (
+    build_gateway_grpc_client,
+    build_gateway_locust_grpc_client,
+)
+from contracts.services.gateway.operations.operations_gateway_service_pb2_grpc import (
+    OperationsGatewayServiceStub,
+)
 from contracts.services.gateway.operations.rpc_get_operation_pb2 import (
-    GetOperationRequest, GetOperationResponse)
+    GetOperationRequest,
+    GetOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_get_operation_receipt_pb2 import (
-    GetOperationReceiptRequest, GetOperationReceiptResponse)
+    GetOperationReceiptRequest,
+    GetOperationReceiptResponse,
+)
 from contracts.services.gateway.operations.rpc_get_operations_pb2 import (
-    GetOperationsRequest, GetOperationsResponse)
+    GetOperationsRequest,
+    GetOperationsResponse,
+)
 from contracts.services.gateway.operations.rpc_get_operations_summary_pb2 import (
-    GetOperationsSummaryRequest, GetOperationsSummaryResponse)
+    GetOperationsSummaryRequest,
+    GetOperationsSummaryResponse,
+)
 from contracts.services.gateway.operations.rpc_make_bill_payment_operation_pb2 import (
-    MakeBillPaymentOperationRequest, MakeBillPaymentOperationResponse)
+    MakeBillPaymentOperationRequest,
+    MakeBillPaymentOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_cash_withdrawal_operation_pb2 import (
-    MakeCashWithdrawalOperationRequest, MakeCashWithdrawalOperationResponse)
+    MakeCashWithdrawalOperationRequest,
+    MakeCashWithdrawalOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_cashback_operation_pb2 import (
-    MakeCashbackOperationRequest, MakeCashbackOperationResponse)
+    MakeCashbackOperationRequest,
+    MakeCashbackOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_fee_operation_pb2 import (
-    MakeFeeOperationRequest, MakeFeeOperationResponse)
+    MakeFeeOperationRequest,
+    MakeFeeOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_purchase_operation_pb2 import (
-    MakePurchaseOperationRequest, MakePurchaseOperationResponse)
+    MakePurchaseOperationRequest,
+    MakePurchaseOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_top_up_operation_pb2 import (
-    MakeTopUpOperationRequest, MakeTopUpOperationResponse)
+    MakeTopUpOperationRequest,
+    MakeTopUpOperationResponse,
+)
 from contracts.services.gateway.operations.rpc_make_transfer_operation_pb2 import (
-    MakeTransferOperationRequest, MakeTransferOperationResponse)
+    MakeTransferOperationRequest,
+    MakeTransferOperationResponse,
+)
 from contracts.services.operations.operation_pb2 import OperationStatus
 from tools.fakers import fake
 
@@ -340,3 +367,20 @@ def build_operations_gateway_grpc_client() -> OperationsGatewayGRPCClient:
     :return: Инициализированный клиент для OperationsGatewayGRPCClient.
     """
     return OperationsGatewayGRPCClient(channel=build_gateway_grpc_client())
+
+
+def build_operations_gateway_locust_grpc_client(
+    environment: Environment,
+) -> OperationsGatewayGRPCClient:
+    """
+    Функция создаёт экземпляр OperationsGatewayGRPCClient адаптированного под Locust.
+
+    Клиент автоматически собирает метрики и передаёт их в Locust через хуки.
+    Используется исключительно в нагрузочных тестах.
+
+    :param environment: объект окружения Locust.
+    :return: экземпляр OperationsGatewayGRPCClient с хуками сбора метрик.
+    """
+    return OperationsGatewayGRPCClient(
+        channel=build_gateway_locust_grpc_client(environment)
+    )

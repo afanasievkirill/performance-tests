@@ -1,13 +1,22 @@
 from grpc import Channel
+from locust.env import Environment
 
 from clients.grpc.client import GRPCClient
-from clients.grpc.gateway.client import build_gateway_grpc_client
+from clients.grpc.gateway.client import (
+    build_gateway_grpc_client,
+    build_gateway_locust_grpc_client,
+)
 from contracts.services.gateway.users.rpc_create_user_pb2 import (
-    CreateUserRequest, CreateUserResponse)
-from contracts.services.gateway.users.rpc_get_user_pb2 import (GetUserRequest,
-                                                               GetUserResponse)
-from contracts.services.gateway.users.users_gateway_service_pb2_grpc import \
-    UsersGatewayServiceStub
+    CreateUserRequest,
+    CreateUserResponse,
+)
+from contracts.services.gateway.users.rpc_get_user_pb2 import (
+    GetUserRequest,
+    GetUserResponse,
+)
+from contracts.services.gateway.users.users_gateway_service_pb2_grpc import (
+    UsersGatewayServiceStub,
+)
 from tools.fakers import fake
 
 
@@ -24,8 +33,10 @@ class UsersGatewayGRPCClient(GRPCClient):
         :param channel: gRPC-канал для подключения к UsersGatewayService.
         """
         super().__init__(channel)
-        
-        self.stub = UsersGatewayServiceStub(channel)  # gRPC-стаб, сгенерированный из .proto
+
+        self.stub = UsersGatewayServiceStub(
+            channel
+        )  # gRPC-стаб, сгенерированный из .proto
 
     def get_user_api(self, request: GetUserRequest) -> GetUserResponse:
         """
@@ -66,7 +77,7 @@ class UsersGatewayGRPCClient(GRPCClient):
             last_name=fake.last_name(),
             first_name=fake.first_name(),
             middle_name=fake.middle_name(),
-            phone_number=fake.phone_number()
+            phone_number=fake.phone_number(),
         )
         return self.create_user_api(request)
 
@@ -78,3 +89,18 @@ def build_users_gateway_grpc_client() -> UsersGatewayGRPCClient:
     :return: Инициализированный клиент для UsersGatewayService.
     """
     return UsersGatewayGRPCClient(channel=build_gateway_grpc_client())
+
+
+def build_users_gateway_locust_grpc_client(
+    environment: Environment,
+) -> UsersGatewayGRPCClient:
+    """
+    Функция создаёт экземпляр UsersGatewayGRPCClient адаптированного под Locust.
+
+    Клиент автоматически собирает метрики и передаёт их в Locust через хуки.
+    Используется исключительно в нагрузочных тестах.
+
+    :param environment: объект окружения Locust.
+    :return: экземпляр UsersGatewayGRPCClient с хуками сбора метрик.
+    """
+    return UsersGatewayGRPCClient(channel=build_gateway_locust_grpc_client(environment))
